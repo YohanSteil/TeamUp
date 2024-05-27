@@ -1,0 +1,44 @@
+{
+  "name": "projet-15-sport-team-up-back",
+  "version": "1.0.0",
+  "description": "team up",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx nodemon index.js",
+    "db:createdb": "psql -U postgres -f ./data/create_db.sql",
+    "db:seeding": "psql -U postgres -d teamup -f ./data/seeding.sql",
+    "db:tables": "psql -U postgres -d teamup -f ./data/create_tables.sql",
+    "db:reset": "npm run db:createdb && npm run db:tables && npm run db:seeding && npm run db:updateUserFunction && npm run db:createUserFunction && npm run db:updateEventFunction && npm run db:createEventFunction && npm run db:createSportFunction && npm run db:updateSportFunction && npm run db:createLevelFunction && npm run db:updateLevelFunction",
+    "db:updateUserFunction": "psql -U postgres -d teamup -f ./data/sql.functions/user/update.user.functions.sql",
+    "db:createUserFunction": "psql -U postgres -d teamup -f ./data/sql.functions/user/create.user.functions.sql",
+    "db:updateEventFunction": "psql -U postgres -d teamup -f ./data/sql.functions/event/update.event.functions.sql",
+    "db:createEventFunction": "psql -U postgres -d teamup -f ./data/sql.functions/event/create.event.functions.sql",
+    "db:createSportFunction": "psql -U postgres -d teamup -f ./data/sql.functions/sports/create.sport.functions.sql",
+    "db:updateSportFunction": "psql -U postgres -d teamup -f ./data/sql.functions/sports/update.sport.functions.sql",
+    "db:createLevelFunction": "psql -U postgres -d teamup -f ./data/sql.functions/levels/create.level.functions.sql",
+    "db:updateLevelFunction": "psql -U postgres -d teamup -f ./data/sql.functions/levels/update.level.functions.sql"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "email-validator": "^2.0.4",
+    "express": "^4.19.2",
+    "express-jsdoc-swagger": "^1.8.0",
+    "joi": "^17.12.3",
+    "jsonwebtoken": "^9.0.2",
+    "moment": "^2.30.1",
+    "nodemon": "^3.1.0",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1"
+  }
+}

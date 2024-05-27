@@ -1,0 +1,18 @@
+BEGIN;
+
+
+CREATE FUNCTION update_sport(id integer, input json)
+RETURNS VOID
+AS $$
+
+UPDATE "sport"
+SET
+    "name" = COALESCE(input->>'name', "name"),
+    "image" = COALESCE(input->>'image', "image"),
+    "updated_at" = COALESCE(to_timestamp(input->>'updated_at', 'YYYY-MM-DD HH:MI:SS')::timestamptz, "updated_at")
+WHERE
+    "id" = $1;
+
+$$ LANGUAGE sql STRICT;
+
+COMMIT;
