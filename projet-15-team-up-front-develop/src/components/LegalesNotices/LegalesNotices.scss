@@ -1,0 +1,66 @@
+@use '../../styles/variables.scss' as v;
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+  /* Styles for Legal Notice section on small screens */
+  .LN {
+    text-align: center;
+    width: 90%;
+    margin: 1em;
+    border-radius: 3em;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin-bottom: 3em;
+  }
+
+  /* Styles for the title of Legal Notice section */
+  .title {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    color: v.$color-primary;
+  }
+
+  /* Styles for list items in Legal Notice section */
+  li {
+    padding-bottom: 0.5em;
+  }
+
+  /* Additional styles for the last element in Legal Notice section */
+  .last {
+    padding-bottom: 2em;
+  }
+}
+
+@media (min-width: 2701px) {
+  /* Styles for Legal Notice section on large screens */
+  .LN {
+    text-align: center;
+    width: 70%;
+    border: 1px solid lightgray;
+    margin: auto auto;
+    border-radius: 3em;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin-bottom: 3em;
+  }
+
+  /* Styles for the title of Legal Notice section on large screens */
+  .title {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    color: v.$color-primary;
+  }
+
+  /* Styles for list items in Legal Notice section on large screens */
+  li {
+    padding-bottom: 0.5em;
+  }
+
+  /* Additional styles for the last element in Legal Notice section on large screens */
+  .last {
+    padding-bottom: 2em;
+  }
+}

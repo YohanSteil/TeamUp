@@ -1,0 +1,263 @@
+@use '../../styles/variables.scss' as v;
+
+.event {
+  border: 1px solid lightgray;
+  width: 70%;
+  margin: 1rem auto;
+  border-radius: 3em;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 2em;
+    padding-left: 3em;
+  }
+
+  &__header > h1 {
+    margin: auto auto;
+  }
+}
+
+.photoAnbButton {
+  padding-top: 4em;
+  width: 100%;
+  display: flex;
+
+  &__image {
+    margin: auto;
+    width: 40%;
+    height: 40%;
+    border-radius: 0.5em;
+  }
+
+  &__button {
+    width: 6em;
+    height: 2em;
+    border-radius: 0.3em;
+    background-color: v.$color;
+    border: 1px solid v.$color-primary;
+    color: v.$color-primary;
+    font-size: 1.1rem;
+    font-weight: bord;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  &__button:hover {
+    background-color: v.$color-primary;
+    color: v.$color;
+    border: 1px solid v.$color-primary;
+  }
+
+  a {
+    height: 2em;
+  }
+}
+
+.detailsActivity {
+  height: 22em;
+  margin: 5em 0 1em 0;
+  display: flex;
+  justify-content: space-around;
+
+  &__details {
+    padding: 0 2em 0 2em;
+    width: 40%;
+    height: 22em;
+    border: 1px solid lightgray;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__imageAndUsername {
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    height: 8em;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3em;
+  }
+
+  &__imageAndUsername > p {
+    margin: 0;
+  }
+
+  &__imageAndUsername > h3 {
+    margin: 0;
+  }
+
+  &__infos {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2em;
+  }
+
+  &__field {
+    color: v.$color-primary;
+    font-weight: bold;
+  }
+}
+
+.participant {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: 1px solid lightgray;
+  width: 70%;
+  margin: 8rem auto;
+  border-radius: 0.5rem;
+
+  &__title {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid lightgray;
+  }
+
+  &__detail {
+    justify-content: space-between;
+    padding-top: 0.7rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10rem;
+  }
+
+  &__detail > a {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    font-weight: bold;
+    margin-right: 20rem;
+  }
+  &__detail > p {
+    text-align: center;
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.notConnected {
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.img.ui.avatar.image.img {
+  font-size: 2.5rem;
+}
+
+.addButton {
+  font-size: 2rem;
+  cursor: pointer;
+  color: v.$color-primary;
+}
+
+.addButton:hover {
+  transition: ease-in-out 0.2s;
+  transform: scale(1.1);
+}
+
+.button.ui.button.participateButton {
+  margin: 0 auto;
+  width: 70%;
+  font-size: 1.5rem;
+}
+
+.button.ui.button.participateButton:hover {
+  margin: 0 auto;
+  width: 70%;
+  background-color: v.$color-primary;
+  color: v.$color;
+  font-size: 1.5rem;
+}
+
+/* Styles ajoutés pour tablettes et mobiles */
+
+@media (max-width: 768px) {
+  .event {
+    width: 90%;
+    padding: 2rem;
+    border: none;
+  }
+
+  .photoAnbButton {
+    padding-top: 2em;
+
+    &__image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 0.5em;
+      margin-bottom: 5em;
+    }
+
+    &__button {
+      display: none;
+    }
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Réduire la taille du titre h1 */
+  }
+
+  .detailsActivity {
+    flex-direction: column;
+
+    &__details {
+      width: 100%;
+      margin-bottom: 2em;
+      border-radius: 0.5em;
+    }
+
+    &__imageAndUsername {
+      padding: 2em;
+    }
+
+    &__imageAndUsername > h3 {
+      text-align: center;
+    }
+
+    &__infos {
+      padding: 2em;
+    }
+  }
+
+  .ui.tiny.image {
+    width: 3em;
+    height: 3em;
+  }
+
+  .participant {
+    width: 90%;
+    // margin: 2rem auto;
+
+    &__detail {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      align-items: flex-start;
+    }
+
+    &__detail > a {
+      margin-left: 0;
+      margin-top: 1rem;
+      margin-right: 0;
+      font-size: 1.2em;
+    }
+
+    &__detail > p {
+      text-align: left;
+    }
+  }
+
+  .ui.avatar.image.img {
+    width: 1em;
+    height: 1em;
+  }
+}

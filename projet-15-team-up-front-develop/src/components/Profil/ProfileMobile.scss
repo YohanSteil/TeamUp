@@ -1,0 +1,279 @@
+@use '../../styles/variables.scss' as v;
+@media screen and (min-width: 100px) and (max-width: 1000px) {
+  .profil {
+    display: grid;
+    flex-direction: rows;
+    border: 1px solid lightgray;
+    width: auto;
+    justify-content: center;
+    margin: 1rem 1rem auto 5em auto;
+    border-radius: 1em;
+    padding: 1em 20em 2em 8em;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+    text-align: center;
+
+    &__container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h1 {
+      font-size: 1em;
+      text-align: center;
+      color: v.$color-primary;
+      border-bottom: 1px solid lightgray;
+      padding-bottom: 1em;
+      margin-bottom: 1em;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      margin: 4rem 3rem 3rem 0;
+    }
+  }
+
+  /********************* Style pour la photo de profil*********************/
+
+  .toto {
+    display: flex;
+  }
+
+  .profile-photo-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 25%;
+    overflow: hidden;
+    background-color: lightgray;
+    display: inline-block;
+    border: 1px solid v.$color-primary;
+  }
+
+  .profile-photo-label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .profile-photo {
+    width: 15px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .empty-profile-photo {
+    font-size: 3em;
+    visibility: hidden;
+  }
+
+  .profile-photo-input {
+    display: none;
+  }
+
+  .change-photo-button {
+    position: absolute;
+    margin-left: 2em;
+    margin-top: 8em;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: v.$color-primary;
+    color: v.$color;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  /********************* Style pour le pseudo *********************/
+
+  .pseudo {
+    margin-top: 2em;
+    width: 15em;
+    text-align: center;
+    font-size: 1em;
+    padding-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+
+    p {
+      font-size: 2.5em;
+      margin: 0;
+      color: v.$color-primary;
+    }
+
+    button {
+      border: none;
+      padding: 0;
+    }
+    &__pen {
+      color: v.$color-primary;
+      background-color: white;
+      width: 3em;
+    }
+  }
+
+  /********************* Style pour Informations personnelles *********************/
+
+  .infos_link {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+
+    p {
+      margin-top: 2em;
+      width: 10em;
+      font-size: 1em;
+      border: 1px solid v.$color-primary;
+      border-radius: 1em;
+    }
+
+    p:hover {
+      color: black;
+      cursor: pointer;
+      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  /********************* Style pour les 3 dropdown *********************/
+
+  .all_sports {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .select_sport {
+    border-radius: 1em;
+    margin: 0 2em 0 2em;
+
+    select {
+      padding: 0.5em;
+      text-align: center;
+      border: 1px solid v.$color-primary;
+      background-color: v.$color;
+      color: v.$color-primary;
+      font-weight: bold;
+      border-radius: 1em;
+    }
+
+    select:hover {
+      cursor: pointer;
+    }
+  }
+
+  /********************* Style pour le textarea description *********************/
+
+  .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20em;
+  }
+
+  .textarea {
+    min-height: 15em;
+    min-width: 52em;
+    border-radius: 0.5em;
+    padding-left: 3em;
+    padding-top: 2em;
+    border-color: v.$color-primary;
+    resize: none;
+  }
+
+  /********************* Style pour les activités organisées et participées *********************/
+  .activities {
+    height: 10em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .activity {
+    display: flex;
+    width: 12em;
+    align-items: center;
+    font-size: 1.2em;
+    line-height: 2em;
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    &__organized {
+      color: v.$color-primary;
+    }
+
+    &__participated {
+      color: v.$color-bg;
+      font-weight: normal;
+    }
+  }
+
+  /********************* Style pour les cards d'activités effectuées *********************/
+
+  .historic {
+    &__card_organized {
+      display: flex;
+      flex-wrap: wrap;
+      height: 10em;
+      width: 8em;
+      border-radius: 1em;
+      box-sizing: content-box;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid v.$color-primary;
+      cursor: pointer;
+    }
+
+    &__card_organized:hover {
+      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    &__card_participated {
+      display: flex;
+      flex-wrap: wrap;
+      height: 10em;
+      width: 8em;
+      border-radius: 1em;
+      box-sizing: content-box;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid v.$color-bg;
+      cursor: pointer;
+    }
+
+    &__card_participated:hover {
+      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    h4 {
+      text-align: center;
+    }
+
+    h5 {
+      text-align: center;
+      margin: 0 0 1em 0;
+    }
+
+    span {
+      text-align: center;
+      overflow-wrap: break-word;
+      width: 100%;
+    }
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 3em 0 3em;
+  }
+}

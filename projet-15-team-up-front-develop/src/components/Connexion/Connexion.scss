@@ -1,0 +1,506 @@
+@use '../../styles/variables.scss' as v;
+@media screen and (max-width: 1000px) {
+  //this modal responsive   for connection and signUp when you click in the connexion button you will have a this modal
+
+  .modal {
+    display: block;
+    position: fixed;
+    top: 0; /* Align modal to the top of the viewport */
+    left: 0; /* Align modal to the left of the viewport */
+    width: 100%; /* Make the modal full width */
+    height: 100%; /* Make the modal full height */
+    box-sizing: border-box; /* Include padding in the width and height */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds modal height */
+    background-color: rgb(255, 255, 255);
+    z-index: 10;
+    border: 5px solid rgba(255, 255, 255, 0.164);
+  }
+
+  .connexion {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0px solid rgba(255, 255, 255, 0.164);
+    padding-bottom: 0rem;
+    padding-top: 0rem;
+    text-align: center;
+
+    &__header {
+      display: flex;
+
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 0px solid lightgrey;
+      padding-bottom: 0rem;
+      margin-bottom: 0rem;
+    }
+
+    &__closeButton {
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.164);
+    }
+
+    &__title {
+      // padding-left: 2.5rem;
+      font-size: 1.5rem;
+      padding-left: 3.5rem;
+      padding-top: 0rem;
+      padding-bottom: 0rem;
+      margin-bottom: 0rem;
+      margin-top: 0rem;
+      gap: 0rem;
+      text-align: center;
+      font-family: v.$font-roboto;
+      // color: #385b81;
+    }
+
+    &__input {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      padding: 0rem 0;
+      margin: 0 auto;
+      padding-right: 20px;
+    }
+
+    &__input > input {
+      padding: 10px;
+      margin-bottom: 0.3rem;
+      border-radius: 10px;
+      border: 0px solid rgba(163, 163, 163, 0.651);
+    }
+
+    &__input > input:focus {
+      outline: 2px solid #385b81;
+    }
+  }
+
+  .button.ui.button.connexionButton {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    background-color: #e0e1e2;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding: 0.5rem;
+    color: #385b81;
+    cursor: pointer;
+    line-height: 0.2rem;
+  }
+
+  .button.ui.button.connexionButton:hover {
+    background-color: #385b81;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    border: 0px solid white;
+    transition: all 0.2s;
+    padding: 0.5rem;
+  }
+
+  .inscription {
+    display: grid;
+    flex-direction: row;
+    padding-top: 2rem;
+    padding-bottom: 25rem;
+    background-color: white;
+    gap: 0rem;
+    text-align: center;
+
+    &__title {
+      // padding-left: 4rem;
+      font-size: 1.8rem;
+      color: #385b81;
+      padding-top: 0rem;
+    }
+    .button.uiAccéder à mon profil:hover {
+      background-color: #1f3d5e;
+      transition: all 0.2s;
+    }
+    &__input {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 0rem 0;
+      margin: 0 auto;
+      // justify-content: space-between;
+      justify-content: center;
+    }
+
+    &__input > input {
+      padding: 10px;
+      width: 47%;
+      margin: 5px;
+      border: 1px solid rgba(163, 163, 163, 0.651);
+      border-radius: 10px;
+    }
+
+    &__input > input:focus {
+      outline: 2px solid #385b81;
+    }
+
+    &__checkbox {
+      font-size: 0.8rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+
+      input {
+        padding-right: 10rem;
+      }
+    }
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  .button.ui.button.confirmButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    margin-left: 5.5em;
+    width: 130%;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding: 0.5rem;
+    color: #385b81;
+    cursor: pointer;
+  }
+
+  .button.ui.button.confirmButton:hover {
+    background-color: #385b81;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    border: 1px solid white;
+    transition: all 0.2s;
+    padding: 0.5rem;
+  }
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+@media screen and (min-width: 1001px) and (max-width: 1469px) {
+  .modal {
+    background-color: rgb(255, 255, 255);
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.164);
+  }
+
+  .connexion {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.164);
+    padding-bottom: 1rem;
+
+    &__header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 1px solid lightgrey;
+      padding-bottom: 1rem;
+    }
+
+    &__closeButton {
+      cursor: pointer;
+    }
+
+    &__title {
+      // padding-left: 2.5rem;
+      font-size: 2.5rem;
+      padding-left: 3.5rem;
+      text-align: center;
+      // color: #385b81;
+    }
+
+    &__input {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      padding: 1rem 0;
+      margin: 0 auto;
+      padding-right: 20px;
+    }
+
+    &__input > input {
+      padding: 10px;
+      margin-bottom: 0.3rem;
+      border-radius: 10px;
+      border: 1px solid rgba(163, 163, 163, 0.651);
+    }
+
+    &__input > input:focus {
+      outline: 2px solid #385b81;
+    }
+  }
+
+  .button.ui.button.connexionButton {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding: 0.5rem;
+    color: #385b81;
+    cursor: pointer;
+  }
+
+  .button.ui.button.connexionButton:hover {
+    background-color: #385b81;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    border: 1px solid white;
+    transition: all 0.2s;
+    padding: 0.5rem;
+  }
+
+  .inscription {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.2rem;
+    gap: 1rem;
+
+    &__title {
+      // padding-left: 4rem;
+      font-size: 1.8rem;
+      color: #385b81;
+      padding-top: 1rem;
+    }
+
+    &__input {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 0rem 0;
+      margin: 0 auto;
+      // justify-content: space-between;
+      width: 80%;
+    }
+
+    &__input > input {
+      padding: 10px;
+      width: 47%;
+      margin: 5px;
+      border: 1px solid rgba(163, 163, 163, 0.651);
+      border-radius: 10px;
+    }
+
+    &__input > input:focus {
+      outline: 2px solid #385b81;
+    }
+
+    &__checkbox {
+      font-size: 0.8rem;
+      padding-top: 0.5rem;
+    }
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  .button.ui.button.confirmButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    margin-left: 5.5em;
+    width: 130%;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding: 0.5rem;
+    color: #385b81;
+    cursor: pointer;
+  }
+
+  .button.ui.button.confirmButton:hover {
+    background-color: #385b81;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    border: 1px solid white;
+    transition: all 0.2s;
+    padding: 0.5rem;
+  }
+}
+
+@media (min-width: 1470px) {
+  .modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    &__content {
+      background-color: rgb(255, 255, 255);
+      z-index: 10;
+      border: 0px solid rgba(255, 255, 255, 0.164);
+      width: 30%; /* Largeur de la modal de 30% de la largeur de la page */
+      max-width: 30vw; /* Limitez la largeur maximale de la modal à 30% de la largeur de la fenêtre */
+      position: relative; /* Position fixe pour que la modal reste à la même position même lorsque la page est défilée */
+      top: 50%; /* Centrez la modal verticalement */
+      left: 50%; /* Centrez la modal horizontalement */
+      transform: translate(
+        -50%,
+        -50%
+      ); /* Déplacez la modal de moitié de sa taille vers le haut et vers la gauche pour la centrer parfaitement */
+      box-sizing: border-box;
+      padding: 30px;
+    }
+
+    .connexion {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.164);
+      padding-bottom: 1rem;
+
+      &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid lightgrey;
+        padding-bottom: 1rem;
+      }
+
+      &__closeButton {
+        cursor: pointer;
+
+        &:hover {
+          border: 0.2px solid #385b81; // Add a border on hover
+          color: rgba(128, 128, 128, 0.164); // Change text color on hover
+        }
+      }
+
+      &__title {
+        // padding-left: 2.5rem;
+        font-size: 2.5rem;
+        padding-left: 3.5rem;
+        text-align: center;
+        // color: #385b81;
+      }
+
+      &__input {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        padding: 1rem 0;
+        margin: 0 auto;
+        padding-right: 20px;
+      }
+
+      &__input > input {
+        padding: 10px;
+        margin-bottom: 0.3rem;
+        border-radius: 10px;
+        border: 1px solid rgba(163, 163, 163, 0.651);
+      }
+
+      &__input > input:focus {
+        outline: 2px solid #385b81;
+      }
+    }
+
+    .button.ui.button.connexionButton {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+      margin: 0 auto;
+      border-radius: 10px;
+      border: 1px solid grey;
+      padding: 0.5rem;
+      color: #385b81;
+      cursor: pointer;
+    }
+
+    .button.ui.button.connexionButton:hover {
+      background-color: #385b81;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      border: 1px solid grey;
+      transition: all 0.2s;
+      padding: 0.5rem;
+    }
+
+    .inscription {
+      display: flex;
+      flex-direction: column;
+      padding-top: 0.2rem;
+      margin-bottom: 1rem;
+      gap: 1rem;
+
+      &__title {
+        // padding-left: 4rem;
+        font-size: 1.8rem;
+        color: #385b81;
+        padding-top: 1rem;
+      }
+
+      &__input {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0rem 0;
+        margin: 0 auto;
+        // justify-content: space-between;
+        width: 80%;
+      }
+
+      &__input > input {
+        padding: 10px;
+        width: 47%;
+        margin: 5px;
+        border: 1px solid rgba(163, 163, 163, 0.651);
+        border-radius: 10px;
+      }
+
+      &__input > input:focus {
+        outline: 2px solid #385b81;
+      }
+
+      &__checkbox {
+        font-size: 0.8rem;
+        padding-top: 0.5rem;
+
+        input {
+          margin-right: 0.5rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    .hidden {
+      visibility: hidden;
+    }
+
+    .button.ui.button.confirmButton {
+      display: flex;
+      justify-content: center;
+      margin-top: 1em;
+      margin-left: 5.5em;
+      width: 130%;
+      border-radius: 10px;
+      border: 1px solid grey;
+      padding: 0.5rem;
+      color: #385b81;
+      cursor: pointer;
+    }
+
+    .button.ui.button.confirmButton:hover {
+      background-color: #385b81;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      border: 1px solid white;
+      transition: all 0.2s;
+      padding: 0.5rem;
+    }
+  }
+}

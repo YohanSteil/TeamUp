@@ -1,0 +1,463 @@
+@use '../../styles/variables.scss' as v;
+
+.profil {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  width: 50%;
+  justify-content: center;
+  margin: 5em auto 5em auto;
+  border-radius: 3em;
+  padding: 2em 6em 2em 6em;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  h1 {
+    font-size: 2em;
+    text-align: center;
+    color: v.$color-primary;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+  }
+}
+
+/********************* Style pour la photo de profil*********************/
+
+.photo {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  // background-color: aqua;
+
+  &__title {
+    text-align: center;
+    color: v.$color-primary;
+  }
+
+  &__containerPhoto {
+    display: flex;
+    justify-content: center;
+  }
+
+  span {
+    font-style: italic;
+    width: 100%;
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+    // background-color: burlywood;
+  }
+
+  &__change-photo-button {
+    position: absolute;
+    margin-left: 8em;
+    margin-top: 8.8em;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: v.$color-primary;
+    color: v.$color;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  &__container {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    position: relative;
+    width: 50%;
+    height: 9em;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: v.$color-primary;
+    display: flex;
+    border: 3px solid v.$color-primary;
+  }
+
+  &__label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__empty-photo {
+    font-size: 3em;
+    visibility: hidden;
+  }
+
+  &__input {
+    display: none;
+  }
+}
+
+.custom_input {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+  padding-top: 1rem;
+  width: 43%;
+}
+
+.inputs {
+  justify-content: center;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1.5rem;
+}
+
+.custom_input > p {
+  padding-right: 0.5rem;
+  margin: 0;
+  text-align: center;
+  width: 40%;
+}
+.input {
+  font-size: 18px;
+  padding: 5px 10px;
+  width: 100%;
+  padding-right: 10px;
+  outline: none;
+  background: #ffffff;
+  color: #385b81;
+  border: 1px solid #385b81;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px 0px #d9d9d9;
+  transition: 0.3s ease;
+}
+
+.custom_input.pres {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding-top: 1rem;
+  width: 100%;
+  height: 50%;
+}
+
+.input.pres {
+  width: 80%;
+  height: 40%;
+}
+
+.input:focus {
+  background: #f2f2f2;
+  border: 1px solid #5a7ec7;
+  border-radius: 10px;
+}
+
+.input::placeholder {
+  color: #d9d9d9;
+}
+
+.svg_icon {
+  position: absolute;
+  right: 35px;
+  fill: #4660dc;
+  width: 18px;
+  height: 18px;
+}
+
+/********************* Style pour le pseudo *********************/
+
+.pseudo {
+  text-align: center;
+  font-size: 1.4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 60%;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    &__pseudoIcon {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__title {
+      text-align: center;
+      color: v.$color-primary;
+    }
+  }
+
+  span {
+    font-style: italic;
+    width: 100%;
+    // background-color: aqua;
+  }
+
+  p {
+    font-size: 2rem;
+    margin: 0;
+    color: v.$color-primary;
+    width: 5em;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button {
+    background-color: white;
+    border: none;
+    display: flex;
+    height: 1em;
+    cursor: pointer;
+  }
+
+  &__pen {
+    color: black;
+    background-color: white;
+    width: 1em;
+  }
+}
+
+/********************* Style pour Informations personnelles *********************/
+
+.personal_infos {
+  margin-top: 1.5rem;
+
+  &__title {
+    color: v.$color-primary;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+  }
+}
+
+.infos_link {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+
+  p {
+    margin-top: 2em;
+    width: 10em;
+    font-size: 1em;
+    border: 1px solid v.$color-primary;
+    border-radius: 0.5em;
+  }
+
+  p:hover {
+    color: black;
+    cursor: pointer;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/********************* Style pour la présentation *********************/
+
+.presentation {
+  text-align: center;
+  display: flex;
+  height: 25em;
+  margin: 3em 0 0 0;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title {
+    color: v.$color-primary;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+  }
+
+  &__box {
+    margin: 1em auto;
+    // background-color: green;
+    width: 80%;
+    height: 40%;
+    border-radius: 0.5em;
+    border: 1px solid v.$color-primary;
+  }
+
+  &__txt {
+    margin: 1em;
+  }
+
+  button {
+    width: 30%;
+    margin: 0 auto;
+    padding: 0.3em;
+    border-radius: 0.5em;
+    border: 1px solid lightgray;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: v.$color-primary;
+    color: v.$color;
+  }
+}
+
+.textarea {
+  min-height: 15em;
+  min-width: 52em;
+  border-radius: 0.5em;
+  padding-left: 3em;
+  padding-top: 2em;
+  border-color: v.$color-primary;
+  resize: none;
+}
+
+/********************* Style pour les activités participées *********************/
+.activities {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2em 0 2em 0;
+  font-size: 1.5em;
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  padding: 1rem;
+
+  &__username {
+    color: v.$color-primary;
+    font-weight: bold;
+  }
+
+  &__description {
+    font-style: italic;
+  }
+}
+
+/********************* Style pour les cards d'activités effectuées *********************/
+
+.historic {
+  &__card_organized {
+    display: flex;
+    flex-wrap: wrap;
+    height: 10em;
+    width: 8em;
+    border-radius: 1em;
+    box-sizing: content-box;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid v.$color-primary;
+    cursor: pointer;
+  }
+
+  &__card_organized:hover {
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  &__card_participated {
+    display: flex;
+    flex-wrap: wrap;
+    height: 10em;
+    width: 8em;
+    border-radius: 1em;
+    box-sizing: content-box;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid v.$color-bg;
+    cursor: pointer;
+  }
+
+  &__card_participated:hover {
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  h5 {
+    text-align: center;
+    margin: 0 0 1em 0;
+  }
+
+  span {
+    text-align: center;
+    overflow-wrap: break-word;
+    width: 100%;
+  }
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0 3em 0 3em;
+  padding-bottom: 2rem;
+}
+
+.updateButton {
+  background-color: v.$color-primary;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 0.7rem;
+  margin: 1rem 2rem;
+  border-radius: 2rem;
+  border: 2px solid v.$color;
+  cursor: pointer;
+}
+
+.updateButton:hover {
+  background-color: v.$color;
+  color: v.$color-primary;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 0.7rem;
+  margin: 1rem 2rem;
+  border: 2px solid v.$color-primary;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.deleteButton {
+  background-color: v.$color-primary;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 0.7rem;
+  margin: 0 2rem;
+  border-radius: 2rem;
+  border: 2px solid v.$color;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: v.$color;
+  color: v.$color-primary;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 0.7rem;
+  margin: 0 2rem;
+  border: 2px solid v.$color-primary;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}

@@ -1,0 +1,77 @@
+@use '../../../styles/variables' as v;
+
+/* Styles inchangés pour desktop */
+
+.footer {
+  display: flex;
+  height: 5.5rem;
+  width: 100%;
+  background-color: v.$color-primary;
+}
+
+.footer__icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.left,
+.right {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  a {
+    color: v.$color;
+  }
+
+  a:hover {
+    color: v.$color;
+    text-decoration: underline;
+  }
+}
+
+/* Styles ajoutés pour tablettes et mobiles */
+
+@media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: row;
+    height: auto; /* Supprimez la hauteur fixe pour permettre au contenu de s'adapter */
+  }
+
+  .footer__icons {
+    // flex-direction: column; /* Changez la direction en colonne pour les icônes */
+    align-items: center; /* Centrez les icônes */
+    padding: 1rem; /* Réduisez l'espacement */
+    gap: 1rem; /* Réduisez l'espacement entre les icônes */
+    width: 10em;
+  }
+
+  .footer__links {
+    align-items: flex-start;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    padding-left: 1.2em;
+    line-height: 2em;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}

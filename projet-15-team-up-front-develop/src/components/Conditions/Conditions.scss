@@ -1,0 +1,89 @@
+// Importation des variables de style depuis le fichier variables.scss
+@use '../../styles/variables.scss' as v;
+
+// Media queries pour les écrans de petite taille (100px à 600px)
+@media screen and (min-width: 100px) and (max-width: 600px) {
+  // Styles pour la section "Conditions" sur les petits écrans
+  .conditions {
+    text-align: center;
+    width: 90%;
+    margin: 1em auto;
+    border-radius: 3em;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin-bottom: 3em;
+
+    // Styles pour le titre de la section
+    &__title {
+      text-align: center;
+      padding-top: 2em;
+      padding-bottom: 1em;
+      color: v.$color-primary; // Utilisation de la couleur primaire définie dans les variables
+    }
+  }
+
+  // Styles pour les éléments numériques
+  .number {
+    color: v.$color-primary; // Utilisation de la couleur primaire définie dans les variables
+  }
+
+  // Styles pour les points
+  .point {
+    color: v.$color-bg; // Utilisation de la couleur de fond définie dans les variables
+  }
+
+  // Styles pour les éléments de liste
+  li {
+    padding-bottom: 0.5em;
+  }
+
+  // Styles spécifiques pour le dernier élément de la liste
+  .last {
+    padding-bottom: 2em;
+  }
+}
+
+// Media queries pour les écrans de taille moyenne à grande (à partir de 601px)
+@media (min-width: 601px) {
+  // Styles pour la section "Conditions" sur les grands écrans
+  .conditions {
+    text-align: center;
+    width: 70%;
+    border: 1px solid lightgray; // Bordure légèrement grise
+    margin: auto auto; // Centrage horizontal
+    border-radius: 3em;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin-bottom: 3em;
+
+    // Styles pour le titre de la section
+    &__title {
+      text-align: center;
+      padding-top: 2em;
+      padding-bottom: 1em;
+      color: v.$color-primary; // Utilisation de la couleur primaire définie dans les variables
+    }
+  }
+
+  // Styles pour les éléments numériques
+  .number {
+    color: v.$color-primary; // Utilisation de la couleur primaire définie dans les variables
+  }
+
+  // Styles pour les points
+  .point {
+    color: v.$color-bg; // Utilisation de la couleur de fond définie dans les variables
+  }
+
+  // Styles pour les éléments de liste
+  li {
+    padding-bottom: 0.5em;
+  }
+
+  // Styles spécifiques pour le dernier élément de la liste
+  .last {
+    padding-bottom: 2em;
+  }
+}

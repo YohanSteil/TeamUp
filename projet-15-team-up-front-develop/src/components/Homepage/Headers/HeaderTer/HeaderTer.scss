@@ -1,0 +1,61 @@
+@use '../../../../styles//variables.scss' as v;
+
+.headerTer {
+  flex-direction: column;
+  padding-top: 20px;
+  display: flex;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 4rem;
+  }
+
+  &__logo {
+    height: 150px;
+    padding-left: 4rem;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+  }
+
+  &__title > h1 {
+    font-size: 4rem;
+  }
+
+  &__title > h2 {
+    font-weight: normal;
+    margin: 0;
+  }
+
+  &__letter {
+    color: v.$color-primary;
+  }
+
+  &__apostrophe {
+    color: v.$color-bg;
+  }
+
+  &__login {
+    font-size: 1em;
+    padding: 20px;
+  }
+
+  &__inscription {
+    background-color: v.$color-primary !important;
+    color: v.$color !important;
+  }
+
+  &__inscription:hover {
+    opacity: 0.8;
+  }
+
+  &__buttons {
+    padding-right: 2rem !important;
+  }
+}

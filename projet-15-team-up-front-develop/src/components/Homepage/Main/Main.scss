@@ -1,0 +1,80 @@
+@use '../../../styles/variables' as v;
+
+.main {
+  margin-top: 2em;
+  padding: 0 3rem;
+
+  &__card {
+    padding-top: 4rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-top: 1px lightgrey solid;
+  }
+
+  &__button {
+    display: flex;
+    position: fixed;
+    width: 13em;
+    left: 45%;
+    top: 90%;
+    background-color: v.$color-bg;
+    color: white;
+    padding: 0.7em;
+    border: none;
+    font-weight: bold;
+    border-radius: 2em;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+    box-shadow: 0px 9px 5px -5px rgba(31, 30, 28, 0.7);
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.main__button:hover {
+  background-color: v.$color-bg;
+  color: black;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4em;
+}
+
+li {
+  list-style: none;
+}
+
+.logo_map {
+  font-size: 2em;
+}
+
+.ui.cards {
+  gap: 2rem;
+  display: flex;
+  margin: 0;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.ui.card.card:hover {
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+}
+
+.image {
+  min-height: 65%;
+  border-radius: 15px;
+}
+
+.ui.cards > .card > .image > img {
+  height: 100%;
+  border-radius: 10px 10px 0 0;
+}

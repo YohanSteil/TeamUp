@@ -1,0 +1,63 @@
+// @use '../../styles/variables.scss' as v;
+
+// .personal_infos {
+//   display: flex;
+//   flex-direction: column;
+//   border: 1px solid lightgray;
+//   width: 50%;
+//   justify-content: center;
+//   margin: 0 auto 5em auto;
+//   border-radius: 3em;
+//   padding: 2em 8em 2em 8em;
+//   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+
+//   h1 {
+//     font-size: 2em;
+//     text-align: center;
+//     color: v.$color-primary;
+//     border-bottom: 1px solid lightgray;
+//     padding-bottom: 1em;
+//     margin-bottom: 1em;
+//   }
+
+//   form {
+//     display: flex;
+//     flex-direction: column;
+
+//     gap: 1em;
+//   }
+
+//   input {
+//     width: 80%;
+//     height: 4em;
+//     position: relative;
+//     border: 1px solid lightgray;
+//     border-radius: 0.5em;
+//     margin-bottom: 2em;
+//   }
+
+//   .label {
+//     position: absolute;
+//     margin-left: 2em;
+//     margin-top: -0.5em;
+//     z-index: 1;
+//     background-color: white;
+//     font-size: 1.2em;
+//     width: 4em;
+//     text-align: center;
+//   }
+//   .label2 {
+//     position: absolute;
+//     margin-left: 2em;
+//     margin-top: -0.5em;
+//     z-index: 1;
+//     background-color: white;
+//     font-size: 1.2em;
+//     width: 10em;
+//     text-align: center;
+//   }
+// }
+
+// .input_container {
+//   text-align: center;
+// }
