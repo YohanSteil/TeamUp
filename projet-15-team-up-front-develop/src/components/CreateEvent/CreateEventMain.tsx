@@ -21,6 +21,7 @@ const getUserInfo = async (token: string) => {
         },
       }
     );
+
     const { data } = response.data;
     return data.id; // <== Cette ligne retourne l'ID de l'utilisateur
   } catch (error) {

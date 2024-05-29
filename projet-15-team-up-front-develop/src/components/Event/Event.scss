@@ -178,13 +178,50 @@
   font-size: 1.5rem;
 }
 
+@media screen and (min-width: 961px) and (max-width: 1100px) {
+  .detailsActivity__imageAndUsername {
+    padding: 0;
+  }
+
+  .ui.tiny.image {
+    width: 30px;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 960px) {
+  .event__header {
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+  .event__header > h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+  .participant__detail {
+    padding: 0;
+  }
+  .ui.tiny.image {
+    width: 30px;
+  }
+  .detailsActivity__details {
+    padding: 0;
+  }
+  .detailsActivity__imageAndUsername {
+    padding: 0;
+  }
+}
+
 /* Styles ajoutés pour tablettes et mobiles */
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .event {
     width: 90%;
     padding: 2rem;
     border: none;
+  }
+
+  .participant {
+    margin: 16rem 1.5rem 1rem 1.5rem;
   }
 
   .photoAnbButton {
@@ -205,11 +242,12 @@
 
   h1 {
     font-size: 1.5rem; /* Réduire la taille du titre h1 */
+    text-align: center;
   }
 
   .detailsActivity {
     flex-direction: column;
-
+    margin: 0;
     &__details {
       width: 100%;
       margin-bottom: 2em;

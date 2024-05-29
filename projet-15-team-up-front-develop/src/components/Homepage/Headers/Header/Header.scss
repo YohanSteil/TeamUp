@@ -1,19 +1,42 @@
 @use '../../../../styles/variables' as v;
 
+@media screen and (max-width: 600px) {
+  .header {
+    background-color: red;
+  }
+}
+
 @media screen and (min-width: 601px) and (max-width: 1400px) {
   .header {
+    &__top {
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      height: 180px;
+    }
+    &__top > a {
+      height: 100%;
+    }
     &__logo {
       display: flex;
       flex-direction: column;
       padding-top: 20px;
+      height: 100%;
     }
     &__title {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding-bottom: 5em;
+
       color: black;
+    }
+    &__title > h1 {
+      font-size: 4rem;
+    }
+    &__title > h2 {
+      visibility: hidden;
     }
     &__letter {
       color: v.$color-primary;
@@ -28,16 +51,509 @@
       text-align: center;
       align-items: center;
       min-width: 40%;
-      padding-right: 15rem;
-      padding-left: 10rem;
       border-left: 1px solid lightgray;
       height: 10em;
+      padding-top: 2rem;
     }
 
     &__createActivity > h3 {
       font-size: 1.8rem;
       padding-bottom: 1rem;
     }
+
+    &__choice {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      flex-direction: column;
+    }
+
+    &__login {
+      font-size: 1em;
+      padding: 20px;
+    }
+
+    &__inscription {
+      background-color: v.$color-primary !important;
+      color: v.$color !important;
+    }
+
+    &__inscription:hover {
+      opacity: 0.8;
+    }
+
+    &__buttons {
+      padding-right: 4rem !important;
+    }
+
+    &__buttonsInscription {
+      align-items: center;
+      padding-right: 5rem;
+    }
+
+    &__buttonsInscription > h2 {
+      text-align: center;
+    }
+
+    &__search {
+      text-align: center;
+      width: 100%;
+      padding: 0rem;
+    }
+
+    &__search > h3 {
+      font-size: 1.8rem;
+      padding-bottom: 1rem;
+    }
+
+    &__searchbar {
+      display: flex;
+      margin: 0 5%;
+      align-items: stretch;
+      justify-content: center;
+      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3) !important;
+      border-radius: 20px;
+      overflow: hidden;
+
+      &__city,
+      &__sport,
+      &__level,
+      &__date {
+        width: 22.5%;
+      }
+      &__button {
+        width: 10%;
+        display: flex;
+        align-items: stretch;
+
+        .btn {
+          background-color: #e7b613;
+          color: #fff;
+          margin: 0;
+          padding: 0;
+          border-radius: 0;
+          border: none;
+          width: 100%;
+          text-align: center;
+          cursor: pointer;
+
+          &:hover {
+            color: #fff;
+            background-color: #385b81;
+            border: none;
+          }
+          svg {
+            width: 30px;
+            margin: auto;
+
+            path {
+              fill: #fff;
+            }
+          }
+        }
+      }
+      &__city {
+        input {
+          border: none;
+          font-size: 1.2em;
+          padding: 15px 25px;
+          outline: none;
+          width: 100%;
+          transition: background-color 0.3s; /* Adding transition effect */
+        }
+        input:hover {
+          background-color: #f0f0f0; /* Changing background color on hover */
+          border: 0px solid;
+        }
+      }
+      &__sport,
+      &__level {
+        select {
+          border: none;
+          border-left: 1px rgb(197, 193, 193) solid;
+          font-size: 1.2em;
+          padding: 15px 25px;
+          outline: none;
+          text-align: center;
+          background-color: v.$color;
+          width: 100%;
+          transition: background-color 0.3s; /* Adding transition effect */
+        }
+        select:hover {
+          background-color: #f0f0f0; /* Changing background color on hover */
+        }
+      }
+      &__date {
+        .ant-space-compact-block {
+          display: flex;
+          justify-content: center;
+        }
+        .ant-picker {
+          padding: 0;
+          border: none !important;
+          box-shadow: none !important;
+          border-left: 1px rgb(197, 193, 193) solid !important;
+
+          .ant-picker-input {
+            border: none;
+            font-size: 1.2em;
+            padding: 15px 25px;
+            outline: none;
+            text-align: center;
+            width: 100%;
+            transition: background-color 0.3s; /* Adding transition effect */
+          }
+        }
+      }
+      &__date:hover .ant-picker-input {
+        background-color: #f0f0f0; /* Changing background color on hover */
+      }
+    }
+
+    &__searchedBtn {
+      background-color: v.$color-bg;
+      padding: 0.3em;
+      color: v.$color;
+      width: 4em;
+      height: 2.2em;
+      font-size: 1.5em;
+      border: 1px rgb(197, 193, 193) solid;
+      border-radius: 0 1em 1em 0;
+      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    &__arrow {
+      color: v.$color-bg;
+      font-size: 4em;
+      position: relative;
+      left: 3em;
+      bottom: 1.5em;
+      transform: rotate(45deg);
+    }
+  }
+
+  .connect {
+    display: flex !important;
+  }
+
+  .ui.selection.dropdown {
+    min-width: 0;
+    width: 50%;
+    border-top: 1px rgb(197, 193, 193) solid;
+    border-bottom: 1px rgb(197, 193, 193) solid;
+    border-left: 1px rgb(211, 206, 206) solid;
+    border-right: 1px rgb(211, 206, 206) solid;
+    box-shadow: 10px 8px 20px 0px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 0;
+  }
+
+  .ui.input > input {
+    border-radius: 20px 0 0 20px;
+    border-left: 1px rgb(197, 193, 193) solid;
+    border-top: 1px rgb(197, 193, 193) solid;
+    border-bottom: 1px rgb(197, 193, 193) solid;
+    border-right: 1px rgb(211, 206, 206) solid;
+    font-size: 1.2em;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3) !important;
+  }
+}
+
+.button.ui.button.deconnexion {
+  border-radius: 1rem 0 0 1rem;
+  background-color: white;
+  border: 1px solid v.$color-primary;
+  color: v.$color-primary;
+  padding: 0.8rem 3rem;
+}
+
+.button.ui.button.deconnexion:hover {
+  background-color: v.$color;
+  color: v.$color-bg;
+  border: 1px solid v.$color-bg;
+  padding: 0.8rem 3rem;
+}
+
+.button.ui.button.inscription {
+  border-radius: 0 1rem 1rem 0;
+  background-color: v.$color-primary;
+  border: 1px solid v.$color-primary;
+  color: v.$color;
+  padding: 0.8rem 3rem;
+}
+
+.button.ui.button.inscription:hover {
+  background-color: v.$color;
+  color: v.$color-primary;
+  border: 1px solid v.$color-primary;
+  padding: 0.8rem 3rem;
+}
+
+.or {
+  color: v.$color-bg;
+}
+
+.or::before {
+  color: v.$color-bg !important ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid v.$color-primary;
+}
+
+#wrapper {
+  width: 5em;
+  height: 5em;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.my-super-cool-btn {
+  position: relative;
+  text-decoration: none;
+  color: v.$color-primary;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  box-sizing: border-box;
+}
+.my-super-cool-btn span {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6em;
+  height: 6em;
+}
+.my-super-cool-btn span:before {
+  content: 'Go!';
+  line-height: 2.8rem; /* Center the text vertically */
+  text-align: center;
+  width: 60%;
+  height: 30%;
+  display: block;
+  position: absolute;
+  border-radius: 0.5em;
+  border: 3px solid v.$color-bg;
+  box-sizing: border-box;
+  transition: all 0.85s cubic-bezier(0.25, 1, 0.33, 1);
+  box-shadow:
+    0 30px 85px rgba(0, 0, 0, 0.14),
+    0 15px 35px rgba(0, 0, 0, 0.14);
+}
+.my-super-cool-btn:hover span:before {
+  transform: scale(0.8);
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.14),
+    0 15px 35px rgba(0, 0, 0, 0.14);
+}
+.my-super-cool-btn .dots-container {
+  opacity: 0;
+  animation: intro 1.6s;
+  animation-fill-mode: forwards;
+}
+.my-super-cool-btn .dot {
+  width: 8px;
+  height: 8px;
+  display: block;
+  background-color: v.$color-bg;
+  border-radius: 100%;
+  position: absolute;
+  transition: all 0.85s cubic-bezier(0.25, 1, 0.33, 1);
+}
+.my-super-cool-btn .dot:nth-child(1) {
+  top: 50px;
+  left: 50px;
+  transform: rotate(-140deg);
+  animation: swag1-out 0.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+.my-super-cool-btn .dot:nth-child(2) {
+  top: 50px;
+  right: 50px;
+  transform: rotate(140deg);
+  animation: swag2-out 0.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+.my-super-cool-btn .dot:nth-child(3) {
+  bottom: 50px;
+  left: 50px;
+  transform: rotate(140deg);
+  animation: swag3-out 0.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+.my-super-cool-btn .dot:nth-child(4) {
+  bottom: 50px;
+  right: 50px;
+  transform: rotate(-140deg);
+  animation: swag4-out 0.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+.my-super-cool-btn:hover .dot:nth-child(1) {
+  animation: swag1 0.3s;
+  animation-fill-mode: forwards;
+}
+.my-super-cool-btn:hover .dot:nth-child(2) {
+  animation: swag2 0.3s;
+  animation-fill-mode: forwards;
+}
+.my-super-cool-btn:hover .dot:nth-child(3) {
+  animation: swag3 0.3s;
+  animation-fill-mode: forwards;
+}
+.my-super-cool-btn:hover .dot:nth-child(4) {
+  animation: swag4 0.3s;
+  animation-fill-mode: forwards;
+}
+@keyframes intro {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes swag1 {
+  0% {
+    top: 50px;
+    left: 50px;
+    width: 8px;
+  }
+  50% {
+    width: 30px;
+    opacity: 1;
+  }
+  100% {
+    top: 20px;
+    left: 20px;
+    width: 8px;
+    opacity: 1;
+  }
+}
+@keyframes swag1-out {
+  0% {
+    top: 20px;
+    left: 20px;
+    width: 8px;
+  }
+  50% {
+    width: 30px;
+    opacity: 1;
+  }
+  100% {
+    top: 50px;
+    left: 50px;
+    width: 8px;
+    opacity: 0;
+  }
+}
+@keyframes swag2 {
+  0% {
+    top: 50px;
+    right: 50px;
+    width: 8px;
+  }
+  50% {
+    width: 30px;
+    opacity: 1;
+  }
+  100% {
+    top: 20px;
+    right: 20px;
+    width: 8px;
+    opacity: 1;
+  }
+}
+@keyframes swag2-out {
+  0% {
+    top: 20px;
+    right: 20px;
+    width: 8px;
+  }
+  50% {
+    width: 30px;
+    opacity: 1;
+  }
+  100% {
+    top: 50px;
+    right: 50px;
+    width: 8px;
+    opacity: 0;
+  }
+}
+@keyframes swag3 {
+  0% {
+    bottom: 50px;
+    left: 50px;
+    width: 8px;
+  }
+  50% {
+    width: 30px;
+    opacity: 1;
+  }
+  100% {
+    bottom: 20px;
+    left: 20px;
+    width: 8px;
+    opacity: 1;
+  }
+}
+@keyframes swag3-out {
+  0% {
+    bottom: 20px;
+    left: 20px;
+    width: 8px;
+  }
+  50% {
+    width: 30px;
+    opacity: 1;
+  }
+  100% {
+    bottom: 50px;
+    left: 50px;
+    width: 8px;
+    opacity: 0;
+  }
+}
+@keyframes swag4 {
+  0% {
+    bottom: 50px;
+    right: 50px;
+    width: 8px;
+  }
+  50% {
+    width: 30px;
+    opacity: 1;
+  }
+  100% {
+    bottom: 20px;
+    right: 20px;
+    width: 8px;
+    opacity: 1;
+  }
+}
+@keyframes swag4-out {
+  0% {
+    bottom: 20px;
+    right: 20px;
+    width: 8px;
+  }
+  50% {
+    width: 30px;
+    opacity: 1;
+  }
+  100% {
+    bottom: 50px;
+    right: 50px;
+    width: 8px;
+    opacity: 0;
   }
 }
 
