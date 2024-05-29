@@ -65,6 +65,7 @@ function HeaderSearchBar({ sports, levels, onChange, onSubmit }: DetailsProps) {
         <div className="header__searchbar__date">
           <Space.Compact block>
             <DatePicker
+              className="date"
               placeholder="Date"
               style={{
                 boxShadow: '10px 8px 20px 0px rgba(0, 0, 0, 0.3)',
