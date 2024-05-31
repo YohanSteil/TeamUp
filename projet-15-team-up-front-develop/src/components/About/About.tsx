@@ -16,11 +16,11 @@ function About() {
         </div>
         <h3>Notre Vision</h3>
         <div>
-          Nous imaginons un monde où chaque personne peut trouver un partenaire
-          d’entraînement, un coéquipier ou un mentor sportif. Que vous cherchiez
-          à jouer au football, à faire du yoga, à courir un marathon ou à
-          escalader des montagnes, Team Up est là pour vous aider à trouver la
-          bonne personne.
+          Nous nous nous imaginons un monde où chaque personne peut trouver un
+          partenaire d’entraînement, un coéquipier ou un mentor sportif. Que
+          vous cherchiez à jouer au football, à faire du yoga, à courir un
+          marathon ou à escalader des montagnes, Team Up est là pour vous aider
+          à trouver la bonne personne.
         </div>
         <h3>Qui Sommes-Nous ? </h3>
         <div>
