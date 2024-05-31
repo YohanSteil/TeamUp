@@ -166,7 +166,7 @@ export default function Event({ event }: EventProps) {
 
   function handleDeleteEvent() {
     const confirmDelete = window.confirm(
-      'Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.'
+      'Êtes-vous sûr de vouloir supprimer cette activité ? Cette action est irréversible.'
     );
 
     if (confirmDelete) {
@@ -277,7 +277,7 @@ export default function Event({ event }: EventProps) {
                 src={`http://localhost:3000/${participant.photo}`}
                 avatar
               />
-              <Link to={`/${participant.username}`}>
+              <Link to={`/user/${participant.username}`}>
                 {participant.username}
               </Link>
             </div>
