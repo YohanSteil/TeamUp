@@ -164,30 +164,38 @@ export default function Event({ event }: EventProps) {
     return event.organizer_id === userData?.id;
   };
 
-  function handleDeleteEvent(): void {
-    axios
-      .delete(`/events/${event.id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log("Réponse de l'API:", response);
-        // Suppression réussie, rediriger l'utilisateur vers la page de connexion
-        toast.success('Votre activité à été supprimé avec succès', {
-          duration: 3000,
-          style: {
-            boxShadow: 'rgba(0, 0, 0, 0.8) 0px 19px 38px',
-            border: '1px solid green',
-            marginTop: '20px',
-            fontSize: '1.3rem',
-            background: 'white',
-            color: 'green',
-          },
-        });
+  function handleDeleteEvent() {
+    const confirmDelete = window.confirm(
+      'Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.'
+    );
 
-        navigate('/'); // Redirection vers la page de connexion
-      });
+    if (confirmDelete) {
+      console.log('Tentative de suppression du compte utilisateur...');
+
+      axios
+        .delete(`/events/${event.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          console.log("Réponse de l'API:", response);
+          // Suppression réussie, rediriger l'utilisateur vers la page de connexion
+          toast.success('Votre activité à été supprimé avec succès', {
+            duration: 3000,
+            style: {
+              boxShadow: 'rgba(0, 0, 0, 0.8) 0px 19px 38px',
+              border: '1px solid green',
+              marginTop: '20px',
+              fontSize: '1.3rem',
+              background: 'white',
+              color: 'green',
+            },
+          });
+
+          navigate('/'); // Redirection vers la page de connexion
+        });
+    }
   }
 
   return (
@@ -277,7 +285,7 @@ export default function Event({ event }: EventProps) {
         </div>
 
         {/* Si l'utilisateur n'est pas connecté (!userData), un message lui
-demande de se connecter ou de s'inscrire pour participer à l'événement. */}
+    demande de se connecter ou de s'inscrire pour participer à l'événement. */}
         {!userData ? (
           <div className="notConnected">
             Vous devez être connecté pour participer à cet événement. <br />

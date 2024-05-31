@@ -97,7 +97,7 @@ VALUES
     ('Tournoi de tennis de table', '2024-04-21', 10, 'Tournoi de tennis de table', 8, '890 Rue Ping-Pong, Grenoble', now(), now() + INTERVAL '4 hours', 1, 1, now(), now()),
     ('Match de volley-ball de plage', '2024-04-27', 11, 'Match de volley-ball de plage', 10, '123 Avenue Sable, Tours', now(), now() + INTERVAL '3 hours', 2, 7, now(), now()),
     ('Séance de méditation', '2024-04-18', 12, 'Séance de méditation', 7, '234 Rue Zen, Strasbourg', now(), now() + INTERVAL '1 hour', 3, 20, now(), now()),
-    ('Tournoi déchecs', '2024-04-22', 13, 'Tournoi déchecs', 6, '345 Avenue Gambit, Tours', now(), now() + INTERVAL '4 hours', 1, 9, now(), now()),
+    ('Tournoi d échecs', '2024-04-22', 13, 'Tournoi d échecs', 6, '345 Avenue Gambit, Tours', now(), now() + INTERVAL '4 hours', 1, 9, now(), now()),
     ('Match de handball', '2024-04-30', 14, 'Match de handball', 9, '456 Rue Goal, Tours', now(), now() + INTERVAL '2.5 hours', 2, 13, now(), now()),
     ('Cours de boxe', '2024-04-19', 15, 'Cours de boxe', 5, '567 Rue Ring, Ville', now(), now() + INTERVAL '1.5 hours', 3, 12, now(), now()),
     ('Tournoi de golf', '2024-05-01', 16, 'Tournoi de golf', 8, '678 Avenue Fairway, Strasbourg', now(), now() + INTERVAL '6 hours', 1, 11, now(), now()),

@@ -45,11 +45,14 @@ function HeaderSearchBar({ sports, levels, onChange, onSubmit }: DetailsProps) {
           <select defaultValue="Sport" onChange={onChange} name="sport">
             <option>Sport</option>
             <option aria-label="option" value="sport_id" />
-            {sports.map((sport) => (
-              <option key={sport.id} value={sport.id}>
-                {sport.name}
-              </option>
-            ))}
+            {sports
+              .slice() // Copie le tableau original pour ne pas le modifier
+              .sort((a, b) => a.name.localeCompare(b.name)) // Trie par ordre alphabétique
+              .map((sport) => (
+                <option key={sport.id} value={sport.id}>
+                  {sport.name}
+                </option>
+              ))}
           </select>
         </div>
         <div className="header__searchbar__level">

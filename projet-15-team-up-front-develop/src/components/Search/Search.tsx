@@ -11,6 +11,7 @@ import {
 // import LevelComponent from '../Homepage/Main/Level';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 function Search() {
   // Utilisation de useLocation : Ce hook de React Router permet d'accéder à l'objet location, qui contient des informations sur l'URL actuelle.
@@ -46,13 +47,15 @@ function Search() {
       })
       .catch((error) => {
         console.error("Erreur lors de la recherche d'activité : ", error);
-        alert("Erreur lors de la recherche d'activité. Veuillez réessayer.");
+        toast.error('Aucune activité trouvée');
       });
   }, [address, date, level, sport]); // Exécuter l'effet à chaque changement des paramètres de recherche
 
   return (
     <>
-      <h1>Résultats de la recherche :</h1>
+      <h1 style={{ justifyContent: 'center', display: 'flex' }}>
+        Résultats de la recherche
+      </h1>
       <section>
         <div className="main__card">
           <CardGroup>
@@ -72,8 +75,10 @@ function Search() {
                           <span className="date">{result.date}</span>
                           <br />
                           <span className="date">{result.address}</span>
-
-                          <span>Niveau: {result.level_name}</span>
+                          <br />
+                          <span className="levelResult">
+                            Niveau: {result.level_name}
+                          </span>
                         </CardMeta>
                       </CardContent>
                       <CardContent extra>

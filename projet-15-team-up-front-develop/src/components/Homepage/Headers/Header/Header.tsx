@@ -120,7 +120,7 @@ function Header() {
       })
       .catch((error) => {
         console.error("Erreur lors de la recherche d'activité : ", error);
-        alert("Erreur lors de la recherche d'activité. Veuillez réessayer.");
+        toast.error('Aucune activité trouvée');
       });
     navigate(url);
   };
