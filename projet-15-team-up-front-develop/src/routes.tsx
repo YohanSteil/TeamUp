@@ -2,7 +2,6 @@ import { Outlet, createBrowserRouter } from 'react-router-dom';
 import React from 'react';
 import Homepage from './components/Homepage/Homepage';
 import Contact from './components/Contact/Contact';
-// import LegalNotice from './components/LegalesNotices/LegalesNotices';
 import About from './components/About/About';
 import Conditions from './components/Conditions/Conditions';
 import Error404 from './components/Error404/Error404';
@@ -30,7 +29,7 @@ const router = createBrowserRouter([
         element: <ProfilMain />,
       },
       {
-        path: '/:username',
+        path: '/user/:username',
         element: <ProfilPublic />,
       },
       {
