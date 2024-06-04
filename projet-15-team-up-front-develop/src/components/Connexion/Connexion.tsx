@@ -202,7 +202,7 @@ function Connexion({ setShowConnexionModal }: ConnexionProps) {
           <div className="connexion__header">
             <h1 className="connexion__title">
               Bienvenue sur T<span style={{ color: '#385B81' }}>E</span>AM
-              <span style={{ color: '#385b81' }}>&apos;</span>UP
+              <span style={{ color: '#E7B613' }}>&apos;</span>UP
             </h1>
             <AiFillCloseCircle
               onClick={handleCloseModal}
