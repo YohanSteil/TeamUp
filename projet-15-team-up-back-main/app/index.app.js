@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, "dist")));
 
 // Configuration CORS pour limiter l'accès à l'application front
 const corsOptions = {
-  origin: "http://localhost:5173/"
+  origin: "http://localhost:5173"
 };
 app.use(cors(corsOptions));
 
