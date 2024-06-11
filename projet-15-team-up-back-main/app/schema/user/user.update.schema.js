@@ -6,8 +6,9 @@ const userUpdateSchema = Joi.object({
   username: Joi.string(),
   email: Joi.string().email(),
   password: Joi.string()
-    .regex(/^(?=.*[A-Z])(?=.*\d).{8,}$/)
-    .min(8), // Le mot de passe doit contenir au moins 8 caractères, 1 majuscule et 1 chiffre.
+    .regex(/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/)
+    .min(8), // Le mot de passe doit contenir au moins 8 caractères,
+  //            1 majuscule, 1 caractère spécial et 1 chiffre.
   date_of_birth: Joi.date(),
   description: Joi.string(),
   photo: Joi.string().default(

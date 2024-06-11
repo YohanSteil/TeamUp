@@ -12,95 +12,95 @@ const router = express.Router();
 
 router
   .route("/")
-  /**
-     * GET /user
-     * @summary Récupération de tous les utilisateurs
-     * @tags User
-     * @return {array<User>} 200 - La liste de tous les utilisateurs
-     * @return {ApiError} 500 - Erreur interne du serveur
-     * @example response - 200 - Exemple de réponse réussie
-     *  {
-     *    "data": [
-     *      {
-     *        "id": 1,
-     *        "first_name": "John",
-     *        "last_name": "Doe",
-     *        "username": "john.doe",
-     *        "email": "john@exmple.com",
-     *        "date_of_birth": "1989-12-31T23:00:00.000Z",
-     *        "description": "Je suis une description très marrante",
-     *        "photo": "lien_vers_photo_john_doe.png",
-     *        "created_at": "2024-04-17T09:58:40.143Z",
-     *        "updated_at": "2024-04-17T09:58:40.143Z",
-     *        "role": "member"
-     *      }
-     *    ]
-     *  }
-     * @example response - 500 - Erreur interne au serveur
-     * {
-     *  "statut": 500,
-     *  "message": "Erreur lors de la récupération des users"
-     * }
-  */
+/**
+  * GET /user
+  * @summary Récupération de tous les utilisateurs
+  * @tags User
+  * @return {array<User>} 200 - La liste de tous les utilisateurs
+  * @return {ApiError} 500 - Erreur interne du serveur
+  * @example response - 200 - Exemple de réponse réussie
+  *  {
+  *    "data": [
+    *      {
+    *        "id": 1,
+    *        "first_name": "John",
+    *        "last_name": "Doe",
+    *        "username": "john.doe",
+    *        "email": "john@exmple.com",
+    *        "date_of_birth": "1989-12-31T23:00:00.000Z",
+    *        "description": "Je suis une description très marrante",
+    *        "photo": "lien_vers_photo_john_doe.png",
+    *        "created_at": "2024-04-17T09:58:40.143Z",
+    *        "updated_at": "2024-04-17T09:58:40.143Z",
+    *        "role": "member"
+    *      }
+  *    ]
+  *  }
+  * @example response - 500 - Erreur interne au serveur
+    * {
+    *  "statut": 500,
+    *  "message": "Erreur lors de la récupération des users"
+    * }
+*/
   .get(wrapper(Controller.getAll.bind(Controller)))
-  /**
-      * POST /user
-      * @summary Crée un nouvel utilisateur.
-      * @tags User
-      * @param {object} request.body.required - Les informations de l'utilisateur à créer
-      * @returns {User} 201 - L'utilisateur créé avec succès
-      * @returns {ApiError} 400 - Email invalide
-      * @returns {ApiError} 409 - L'email existe déjà
-      * @returns {ApiError} 409 - Username existe déjà
-      * @returns {ApiError} 500 - Erreur interne du serveur
-      * @example request - Exemple de corps de requête
-      * {
-      *   "first_name": "John",
-      *   "last_name": "Doe",
-      *   "username": "johndoe",
-      *   "email": "john@exmple.com",
-      *   "password": "secret123",
-      *   "date_of_birth": "10/12/1988"
-      * }
-      * @example response - 201 - Exemple de réponse réussie
-      *     {
-      *       "data": [
-      *        {
-      *          "id": 1,
-      *          "first_name": "John",
-      *          "last_name": "Doe",
-      *          "username": "john.doe",
-      *          "email": "john@exmple.com",
-      *          "date_of_birth": "1989-12-31T23:00:00.000Z",
-      *          "description": "Je suis une description très marrante",
-      *          "photo": "lien_vers_photo_john_doe.png",
-      *          "created_at": "2024-04-17T09:58:40.143Z",
-      *          "updated_at": "2024-04-17T09:58:40.143Z",
-      *          "role": "member"
-      *        }
-      *       ]
-      *     }
-      * @example response - 400 - Email invalide
-      * {
-      *  "statut": 400,
-      *  "message": "L'email n'est pas valide."
-      * }
-      * @example response - 409 - L'email existe déjà
-      * {
-      *  "statut": 409,
-      *  "message": "L'adresse email est déjà utilisée."
-      * }
-      * @example response - 409 - Username existe déjà
-      * {
-      *  "statut": 409,
-      *  "message": "Pseudonyme déjà utilisé."
-      * }
-      * @example response - 500 - Erreur interne au serveur
-      * {
-      *  "statut": 500,
-      *  "message": "Une erreur est survenue lors de la création de l'utilisateur."
-      * }
-  */
+/**
+    * POST /user
+    * @summary Crée un nouvel utilisateur.
+    * @tags User
+    * @param {object} request.body.required - Les informations de l'utilisateur à créer
+    * @returns {User} 201 - L'utilisateur créé avec succès
+    * @returns {ApiError} 400 - Email invalide
+    * @returns {ApiError} 409 - L'email existe déjà
+    * @returns {ApiError} 409 - Username existe déjà
+    * @returns {ApiError} 500 - Erreur interne du serveur
+    * @example request - Exemple de corps de requête
+    * {
+    *   "first_name": "John",
+    *   "last_name": "Doe",
+    *   "username": "johndoe",
+    *   "email": "john@exmple.com",
+    *   "password": "secret123",
+    *   "date_of_birth": "10/12/1988"
+    * }
+    * @example response - 201 - Exemple de réponse réussie
+    *     {
+    *       "data": [
+    *        {
+    *          "id": 1,
+    *          "first_name": "John",
+    *          "last_name": "Doe",
+    *          "username": "john.doe",
+    *          "email": "john@exmple.com",
+    *          "date_of_birth": "1989-12-31T23:00:00.000Z",
+    *          "description": "Je suis une description très marrante",
+    *          "photo": "lien_vers_photo_john_doe.png",
+    *          "created_at": "2024-04-17T09:58:40.143Z",
+    *          "updated_at": "2024-04-17T09:58:40.143Z",
+    *          "role": "member"
+    *        }
+    *       ]
+    *     }
+    * @example response - 400 - Email invalide
+    * {
+    *  "statut": 400,
+    *  "message": "L'email n'est pas valide."
+    * }
+    * @example response - 409 - L'email existe déjà
+    * {
+    *  "statut": 409,
+    *  "message": "L'adresse email est déjà utilisée."
+    * }
+    * @example response - 409 - Username existe déjà
+    * {
+    *  "statut": 409,
+    *  "message": "Pseudonyme déjà utilisé."
+    * }
+    * @example response - 500 - Erreur interne au serveur
+    * {
+    *  "statut": 500,
+    *  "message": "Une erreur est survenue lors de la création de l'utilisateur."
+    * }
+*/
   .post(
     validationMiddleware(createSchema, "body"),
     wrapper(Controller.createUser.bind(Controller))
