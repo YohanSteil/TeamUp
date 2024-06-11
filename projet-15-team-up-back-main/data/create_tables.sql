@@ -1,6 +1,5 @@
 BEGIN;
 DROP TABLE IF EXISTS "user_has_event",
-"user_has_sport",
 "event",
 "sport",
 "level",
@@ -55,10 +54,5 @@ CREATE TABLE "user_has_event" (
   "user_id" INT NOT NULL REFERENCES "users"("id"),
   -- Foreign key column referencing user table
   CONSTRAINT "unique_participant_event" UNIQUE ("event_id", "user_id") -- Unique constraint on event_id and user_id combination
-);
-CREATE TABLE "user_has_sport" (
-  "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  "sport_id" INT NOT NULL REFERENCES "sport"("id"),
-  "user_id" INT NOT NULL REFERENCES "users"("id")
 );
 COMMIT;
