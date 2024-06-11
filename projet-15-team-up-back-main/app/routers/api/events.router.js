@@ -35,9 +35,15 @@ router
 // PARTICIPATION D'UN USER A UN EVENT
 router
   .route("/:eventId/join")
-  .post(verifyToken, wrapper(Controller.addUserToEvent.bind(Controller)))
+  .post(
+    verifyToken,
+    wrapper(Controller.addUserToEvent.bind(Controller))
+  )
 
-  .delete(verifyToken, wrapper(Controller.deleteUserToEvent.bind(Controller)));
+  .delete(
+    verifyToken,
+    wrapper(Controller.deleteUserToEvent.bind(Controller))
+  );
 
 // ROUTE GET LATEST 20 EVENTS FROM HOMEPAGE
 router.route("/lastest").get(wrapper(Controller.getLatest.bind(Controller)));
