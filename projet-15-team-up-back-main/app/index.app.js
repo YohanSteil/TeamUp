@@ -18,7 +18,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(cors());
 app.use(bodyParser.json({ limit: "10mb" })); // Limite de taille pour les données JSON
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" })); // Limite de taille pour les données URL encodées
 
