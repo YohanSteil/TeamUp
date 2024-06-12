@@ -28,6 +28,8 @@ const eventSchema = Joi.object({
     .required(), // Format HHhMM
   level_id: Joi.number().integer().min(1).required(),
   sport_id: Joi.number().integer().min(1).required(),
+  address_lat: Joi.number().required(),
+  address_lng: Joi.number().required(),
   created_at: Joi.date().timestamp("javascript").default(Date.now),
   updated_at: Joi.date().timestamp("javascript"),
 });

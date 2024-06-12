@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +7,7 @@ import Footer from '../Homepage/Footer/Footer';
 import CreateEvent from './CreateEvent';
 import Header from '../Homepage/Headers/Header/Header';
 
-// Fonction afin de récupérer l'id du user connecté pour pouvoir par la suite l'intégrer au champs organizer (voir useEffect ligne 94)
+/* ICI : Utile pour récupérer les données du user (surtout son id) */
 const getUserInfo = async (token: string) => {
   try {
     // On interroge l'API en get pour récupérer les infos du user
@@ -32,21 +31,25 @@ const getUserInfo = async (token: string) => {
   }
 };
 
+export type EventData = {
+  title: string;
+  date: string;
+  organizer: number | undefined;
+  description: string;
+  number_of_participants: number;
+  address: string;
+  start_time: string;
+  end_time: string;
+  level_id: number | undefined;
+  sport_id: number | undefined;
+  address_lat: number;
+  address_lng: number;
+};
+
 function CreateEventMain() {
   const [sport, setSport] = useState([]);
   const [level, setLevel] = useState([]);
-  const [eventData, setEventData] = useState<{
-    title: string;
-    date: string;
-    organizer: number | undefined;
-    description: string;
-    number_of_participants: number;
-    address: string;
-    start_time: string;
-    end_time: string;
-    level_id: number | undefined;
-    sport_id: number | undefined;
-  }>({
+  const [eventData, setEventData] = useState<EventData>({
     title: '',
     date: '',
     organizer: undefined,
@@ -57,9 +60,10 @@ function CreateEventMain() {
     end_time: '',
     level_id: undefined,
     sport_id: undefined,
+    address_lat: 0,
+    address_lng: 0,
   });
-  const token = localStorage.getItem('token');
-  // Utile pour la redirection
+
   const navigate = useNavigate();
 
   const handleCreateEventChange = (
@@ -81,58 +85,40 @@ function CreateEventMain() {
     if (name === 'date') {
       setEventData({ ...eventData, date: value });
     }
+    console.log('HEEEEEEERE:', typeof eventData.sport_id);
   };
 
+  /** **** ICI : Utile pour récupérer les données du user (surtout son id) ****** */
+  const token = localStorage.getItem('token');
   useEffect(() => {
     if (token) {
-      getUserInfo(token).then((userId) => {
-        // La variable "fetchedUserId" peut s'appeler "toto" reçoit la valeur retournée par getUserInfo (ici return data.id)
-        if (userId) {
-          // pareil ici, on peut chosir n'importe quel nom. ici tata prends les paramètres défini avec typescript au début
+      console.log('POOOOOOOOOOOO:', token);
+      getUserInfo(token).then((fetchedUserId) => {
+        // Renommer la variable en fetchedUserId
+        if (fetchedUserId) {
           setEventData((prevEventData) => ({
             ...prevEventData,
-            organizer: userId, //  <== Utilisation de "userId" pour mettre à jour organizer
+            organizer: fetchedUserId, // Utiliser le nouveau nom de la variable
           }));
         }
       });
     }
   }, [token]);
 
-  // fonction pour envoyer le formulaire de création d'activité
   const handleCreateEventSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    console.log("Données de création d'activité:", eventData);
 
-    // Vérifiez que tous les champs requis sont remplis
-    const {
-      title,
-      date,
-      address,
-      start_time,
-      end_time,
-      number_of_participants,
-    } = eventData; // Remplacez ces champs par ceux requis dans votre formulaire
-    if (
-      !title ||
-      !date ||
-      !address ||
-      !start_time ||
-      !end_time ||
-      !number_of_participants
-    ) {
-      toast.error('Veuillez renseigner tous les champs');
-      return;
-    }
-
-    // Effectuez la requête axios pour créer l'événement
     axios
-      .post('events', eventData, {
+      .post(`events`, eventData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(() => {
-        // Si la requête réussit, affichez le toast de succès et redirigez l'utilisateur
-        toast.success(`L'activité a bien été créée`, {
+      .then((response) => {
+        console.log('Activité créée:', response.data);
+        navigate('/');
+        toast.success(`L'activité a bien été crée`, {
           duration: 3000,
           style: {
             boxShadow: 'rgba(0, 0, 0, 0.8) 0px 19px 38px',
@@ -143,13 +129,9 @@ function CreateEventMain() {
             color: 'green',
           },
         });
-        navigate('/');
       })
       .catch(() => {
-        // Si la requête échoue, affichez le toast d'erreur
-        toast.error(
-          "Une erreur est survenue lors de la création de l'activité"
-        );
+        toast.error('Veuillez renseigner tous les champs');
       });
   };
 
@@ -181,6 +163,14 @@ function CreateEventMain() {
         levels={level}
         onChange={handleCreateEventChange}
         onSubmit={handleCreateEventSubmit}
+        eventData={eventData}
+        onSetEventGeoLocation={(geoLocationData) =>
+          setEventData((prev) => ({
+            ...prev,
+            address_lat: geoLocationData.address_lat,
+            address_lng: geoLocationData.address_lng,
+          }))
+        }
       />
       <Footer />
     </>

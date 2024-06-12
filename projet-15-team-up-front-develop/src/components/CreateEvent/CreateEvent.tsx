@@ -1,6 +1,8 @@
 import { DatePicker, Space } from 'antd';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import './CreateEvent.scss';
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import type { EventData } from './CreateEventMain';
 
 interface SportDetail {
   id: number;
@@ -13,6 +15,14 @@ interface LevelDetail {
   name: string;
 }
 
+type GeoLocationResult = {
+  x: number;
+  y: number;
+  label: string;
+  bounds: [[number, number], [number, number]] | null;
+  raw: unknown;
+};
+
 interface DetailsProps {
   sports: SportDetail[];
   levels: LevelDetail[];
@@ -22,12 +32,45 @@ interface DetailsProps {
       | React.ChangeEvent<HTMLSelectElement>
   ) => void;
   onSubmit: (e: React.FormEvent<HTMLButtonElement>) => void;
+  eventData: EventData;
+  onSetEventGeoLocation: (geoLocation: {
+    address_lat: number;
+    address_lng: number;
+  }) => void;
 }
 
-function CreateEvent({ sports, levels, onChange, onSubmit }: DetailsProps) {
+const provider = new OpenStreetMapProvider();
+
+function CreateEvent({
+  sports,
+  levels,
+  onChange,
+  onSubmit,
+  eventData,
+  onSetEventGeoLocation,
+}: DetailsProps) {
   const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     onSubmit(e);
+  };
+
+  const [geoLocationResults, setGeoLocationResults] = useState<
+    GeoLocationResult[]
+  >([]);
+
+  const handleSearchAddress = async () => {
+    try {
+      const geoResults = await provider.search({
+        query: eventData.address,
+      });
+      const frenchResults = geoResults.filter((result) => {
+        return result.label.includes('France') || result.label.includes('FR');
+      });
+      setGeoLocationResults(frenchResults);
+      console.log(frenchResults);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -58,7 +101,6 @@ function CreateEvent({ sports, levels, onChange, onSubmit }: DetailsProps) {
               type="text"
               required
               onChange={onChange}
-              // Lorsque on tape un titre dans le champ de texte, cette fonction handleCreateEventChange est appelée avec l'événement onChange. Elle extrait le nom du champ (name) et la valeur saisie (value) à partir de l'événement, puis met à jour l'état eventData en utilisant setEventData en incluant le nouveau titre saisi. Cela permet de garder eventData synchronisé avec les valeurs saisies dans les champs de formulaire.
               name="title"
             />
 
@@ -145,14 +187,47 @@ function CreateEvent({ sports, levels, onChange, onSubmit }: DetailsProps) {
               name="end_time"
             />
             <span className="fieldForResponsive">Adresse</span>
-            <input
-              className="address"
-              type="text"
-              placeholder="10 rue des amandiers 75000 Paris"
-              required
-              onChange={onChange}
-              name="address"
-            />
+            <div className="addressWrapper">
+              <input
+                className="address"
+                type="text"
+                placeholder="10 rue des amandiers 75000 Paris"
+                required
+                onChange={(e) => {
+                  onChange(e);
+                  setGeoLocationResults([]);
+                }}
+                name="address"
+                value={eventData.address}
+              />
+              <button
+                type="button"
+                className="btn"
+                onClick={handleSearchAddress}
+              >
+                Search
+              </button>
+              {geoLocationResults.length > 0 && (
+                <div className="geoLocationResults">
+                  {geoLocationResults.map((result) => (
+                    <button
+                      type="button"
+                      key={result.label}
+                      className="geoLocationResultItem"
+                      onClick={() => {
+                        onSetEventGeoLocation({
+                          address_lat: result.y,
+                          address_lng: result.x,
+                        });
+                        setGeoLocationResults([]);
+                      }}
+                    >
+                      {result.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
             <span className="fieldForResponsive">Description</span>
             <textarea
               className="description"

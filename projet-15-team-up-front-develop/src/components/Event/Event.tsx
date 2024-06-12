@@ -1,11 +1,12 @@
 /* eslint-disable no-nested-ternary */
 import React, { useEffect, useState } from 'react';
 import { Image, Button } from 'semantic-ui-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { TbPlayFootball } from 'react-icons/tb';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+import Map from '../Map/Map';
 
-interface EventDetail {
+export interface EventDetail {
   id: number;
   title: string;
   date: string;
@@ -18,6 +19,8 @@ interface EventDetail {
   level_id: number;
   level_name: string;
   address: string;
+  address_lat: number;
+  address_lng: number;
   start_time: string;
   end_time: string;
   number_of_participant: number;
@@ -36,7 +39,6 @@ interface UserData {
   username: string;
   id: number;
   photo: string;
-  role: string;
 }
 
 interface EventProps {
@@ -54,8 +56,7 @@ export default function Event({ event }: EventProps) {
     },
     ...event.participants,
   ]);
-  const navigate = useNavigate();
-  // console.log('TEEEEEEST:', participants);
+  console.log('TEEEEEEST:', participants);
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -155,53 +156,15 @@ export default function Event({ event }: EventProps) {
     );
     return foundParticipant !== undefined;
   };
-
-  const isOrganizer = () => {
-    if (!event.organizer_id) {
-      return false;
-    }
-    // Vérifie si l'utilisateur est l'organisateur de l'événement
-    return event.organizer_id === userData?.id;
-  };
-
-  function handleDeleteEvent() {
-    const confirmDelete = window.confirm(
-      'Êtes-vous sûr de vouloir supprimer cette activité ? Cette action est irréversible.'
-    );
-
-    if (confirmDelete) {
-      console.log('Tentative de suppression du compte utilisateur...');
-
-      axios
-        .delete(`/events/${event.id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          console.log("Réponse de l'API:", response);
-          // Suppression réussie, rediriger l'utilisateur vers la page de connexion
-          toast.success('Votre activité à été supprimé avec succès', {
-            duration: 3000,
-            style: {
-              boxShadow: 'rgba(0, 0, 0, 0.8) 0px 19px 38px',
-              border: '1px solid green',
-              marginTop: '20px',
-              fontSize: '1.3rem',
-              background: 'white',
-              color: 'green',
-            },
-          });
-
-          navigate('/'); // Redirection vers la page de connexion
-        });
-    }
-  }
+  console.log(event);
 
   return (
     <div>
       <section className="event">
         <div className="event__header">
+          <div>
+            <TbPlayFootball style={{ fontSize: '60px' }} />
+          </div>
           <h1>
             {event.title} - {event.sport_name}
           </h1>
@@ -213,6 +176,7 @@ export default function Event({ event }: EventProps) {
               alt=""
               className="photoAnbButton__image"
             />
+            <Map lat={event.address_lat} lng={event.address_lng} />
             <Link to="/">
               <button type="button" className="photoAnbButton__button">
                 Retour
@@ -230,9 +194,10 @@ export default function Event({ event }: EventProps) {
               </div>
               <div className="detailsActivity__infos">
                 <p>
+                  {' '}
                   <span className="detailsActivity__field">
                     Date de l&apos;activité :
-                  </span>
+                  </span>{' '}
                   {event.date}
                 </p>
                 <p>
@@ -240,16 +205,14 @@ export default function Event({ event }: EventProps) {
                   {event.start_time}
                 </p>
                 <p>
-                  <span className="detailsActivity__field">Heure de fin :</span>
+                  <span className="detailsActivity__field">
+                    Heure de fin :{' '}
+                  </span>
                   {event.end_time}
                 </p>
                 <p>
                   <span className="detailsActivity__field">Adresse : </span>
                   {event.address}
-                </p>
-                <p>
-                  <span className="detailsActivity__field"> Niveau : </span>
-                  {event.level_name}
                 </p>
               </div>
             </div>
@@ -277,47 +240,32 @@ export default function Event({ event }: EventProps) {
                 src={`http://localhost:3000/${participant.photo}`}
                 avatar
               />
-              <Link to={`/user/${participant.username}`}>
+              <Link to={`/${participant.username}`}>
                 {participant.username}
               </Link>
             </div>
           ))}
         </div>
 
-        {/* Si l'utilisateur n'est pas connecté (!userData), un message lui
-    demande de se connecter ou de s'inscrire pour participer à l'événement. */}
         {!userData ? (
           <div className="notConnected">
             Vous devez être connecté pour participer à cet événement. <br />
             <a href="/">Se connecter ou s&apos;inscrire</a>
           </div>
-        ) : // Si l'utilisateur est connecté (userData est défini) mais n'est pas l'organisateur (!isOrganizer()), nous vérifions ensuite s'il participe déjà à l'événement (isParticipant()).
-        !isOrganizer() ? (
-          isParticipant() ? (
-            <Button
-              className="participateButton"
-              onClick={() => handleDeleteParticipation()}
-            >
-              Annuler ma participation
-            </Button>
-          ) : (
-            <Button
-              className="participateButton"
-              onClick={() => handleParticipate()}
-            >
-              Participer
-            </Button>
-          )
+        ) : isParticipant() ? (
+          <Button
+            className="participateButton"
+            onClick={() => handleDeleteParticipation()}
+          >
+            Annuler ma participation
+          </Button>
         ) : (
-          // Si l'utilisateur est l'organisateur (isOrganizer()), un bouton "Supprimer mon activité" est affiché.
-          isOrganizer() && (
-            <Button
-              className="participateButton"
-              onClick={() => handleDeleteEvent()}
-            >
-              Supprimer mon activité
-            </Button>
-          )
+          <Button
+            className="participateButton"
+            onClick={() => handleParticipate()}
+          >
+            Participer
+          </Button>
         )}
       </section>
     </div>

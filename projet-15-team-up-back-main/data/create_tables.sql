@@ -44,6 +44,8 @@ CREATE TABLE "event" (
   "end_time" timestamptz NOT NULL,
   "level_id" INT NOT NULL REFERENCES "level"("id"),
   "sport_id" INT NOT NULL REFERENCES "sport"("id"),
+  "address_lat" FLOAT NOT NULL DEFAULT 0,
+  "address_lng" FLOAT NOT NULL DEFAULT 0,
   "created_at" timestamptz NOT NULL DEFAULT now(),
   "updated_at" timestamptz
 );
