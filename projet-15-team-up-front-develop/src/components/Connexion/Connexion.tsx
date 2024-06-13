@@ -15,12 +15,10 @@ function Connexion({ setShowConnexionModal }: ConnexionProps) {
   const [checked, setChecked] = useState(false);
 
   const [inscriptionData, setInscriptionData] = useState({
-    first_name: '',
-    last_name: '',
     username: '',
     email: '',
     password: '',
-    date_of_birth: '',
+    confirmationPassword: '',
   });
 
   const [connexionData, setConnexionData] = useState({
@@ -79,11 +77,11 @@ function Connexion({ setShowConnexionModal }: ConnexionProps) {
   };
 
   // Fonction pour vérifier le format de la date de naissance
-  const isValidDateOfBirthFormat = (dateOfBirth: string) => {
-    // Expression régulière pour valider le format de la date de naissance JJ/MM/AAAA
-    const regex = /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/;
-    return regex.test(dateOfBirth);
-  };
+  // const isValidDateOfBirthFormat = (dateOfBirth: string) => {
+  // Expression régulière pour valider le format de la date de naissance JJ/MM/AAAA
+  //   const regex = /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/;
+  //   return regex.test(dateOfBirth);
+  // };
 
   // Fonction pour valider l'inscription
   const handleInscriptionSubmit = () => {
@@ -91,32 +89,24 @@ function Connexion({ setShowConnexionModal }: ConnexionProps) {
 
     // Vérification des champs du formulaire
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    const { email, password, last_name, first_name, username, date_of_birth } =
-      inscriptionData;
+    const { email, password, username, confirmationPassword } = inscriptionData;
 
-    if (
-      !email ||
-      !password ||
-      !last_name ||
-      !first_name ||
-      !username ||
-      !date_of_birth
-    ) {
+    if (!email || !password || !username || !confirmationPassword) {
       toast.error('Veuillez remplir tous les champs du formulaire');
       return;
     }
 
-    const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ \-']+$/;
+    // const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ \-']+$/;
 
-    if (!nameRegex.test(first_name)) {
-      toast.error('Le prénom ne doit contenir que des lettres');
-      return;
-    }
+    // if (!nameRegex.test(first_name)) {
+    //   toast.error('Le prénom ne doit contenir que des lettres');
+    //   return;
+    // }
 
-    if (!nameRegex.test(last_name)) {
-      toast.error('Le nom de famille ne doit contenir que des lettres');
-      return;
-    }
+    // if (!nameRegex.test(last_name)) {
+    //   toast.error('Le nom de famille ne doit contenir que des lettres');
+    //   return;
+    // }
 
     // Vérification du format de l'e-mail
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -137,8 +127,13 @@ function Connexion({ setShowConnexionModal }: ConnexionProps) {
     }
 
     // Vérification du format de la date de naissance
-    if (!isValidDateOfBirthFormat(inscriptionData.date_of_birth)) {
-      toast.error('Le format de la date de naissance doit être JJ/MM/AAAA');
+    // if (!isValidDateOfBirthFormat(inscriptionData.date_of_birth)) {
+    //   toast.error('Le format de la date de naissance doit être JJ/MM/AAAA');
+    //   return;
+    // }
+
+    if (password !== confirmationPassword) {
+      toast.error('Les mots de passe ne correspondent pas');
       return;
     }
 
@@ -240,20 +235,6 @@ function Connexion({ setShowConnexionModal }: ConnexionProps) {
           <div className="inscription__input">
             <input
               type="text"
-              placeholder="Prénom"
-              name="first_name"
-              value={inscriptionData.first_name}
-              onChange={handleInscriptionChange}
-            />
-            <input
-              type="text"
-              placeholder="Nom"
-              name="last_name"
-              value={inscriptionData.last_name}
-              onChange={handleInscriptionChange}
-            />
-            <input
-              type="text"
               placeholder="Email"
               name="email"
               value={inscriptionData.email}
@@ -275,9 +256,9 @@ function Connexion({ setShowConnexionModal }: ConnexionProps) {
             />
             <input
               type="text"
-              placeholder="25/04/1989"
-              name="date_of_birth"
-              value={inscriptionData.date_of_birth}
+              placeholder="Confirmation mot de passe"
+              name="confirmationPassword"
+              value={inscriptionData.confirmationPassword}
               onChange={handleInscriptionChange}
             />
             <div className="inscription__checkbox">
