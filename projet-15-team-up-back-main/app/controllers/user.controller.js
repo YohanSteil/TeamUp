@@ -58,6 +58,7 @@ export default class UserController extends CoreController {
 
     const userData = { ...user };
     delete userData.password;
+    delete userData.role;
 
     // Générer un token JWT
     const token = generateToken(user);

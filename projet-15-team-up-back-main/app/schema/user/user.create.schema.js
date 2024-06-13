@@ -6,8 +6,9 @@ const userSchema = Joi.object({
   username: Joi.string().required(),
   email: Joi.string().email().required(),
   password: Joi.string()
-    .regex(/^(?=.*[A-Z])(?=.*\d).{8,}$/)
-    .required(), // Le mot de passe doit contenir au moins 8 caractères, 1 majuscule et 1 chiffre.
+    .regex(/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{12,}$/)
+    .required(), // Le mot de passe doit contenir au moins 12 caractères,
+  //                1 majuscule, 1 caractère spécial et 1 chiffre.
   date_of_birth: Joi.string()
     .regex(/^\d{2}\/\d{2}\/\d{4}$/)
     .required(), // Format JJ/MM/AAAA

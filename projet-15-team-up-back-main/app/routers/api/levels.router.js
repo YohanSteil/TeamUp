@@ -29,6 +29,9 @@ router
     validationMiddleware(updateSchema, "body"),
     wrapper(Controller.update.bind(Controller))
   )
-  .delete(isAdmin, wrapper(Controller.delete.bind(Controller)));
+  .delete(
+    isAdmin,
+    wrapper(Controller.delete.bind(Controller))
+  );
 
 export default router;
