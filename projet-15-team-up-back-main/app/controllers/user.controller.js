@@ -116,7 +116,7 @@ export default class UserController extends CoreController {
           }
         });
 
-        input.photo = imagePath.replace('public/', '');
+        input.photo = path.posix.join('profile_photo', filename);
       } catch (error) {
         console.error(`Erreur lors du téléchargement de l'image:`, error);
         return next(new ApiError(500, `Erreur lors du téléchargement de l'image:`));
