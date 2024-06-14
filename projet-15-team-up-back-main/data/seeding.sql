@@ -59,29 +59,6 @@ VALUES
     ('Charlotte', 'Hernandez', 'charlotte.hernandez', 'charlotte@example.com', 'mot_de_passe', '1992-09-18', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
     ('Alexander', 'King', 'alexander.king', 'alexander@example.com', 'mot_de_passe', '1996-05-22', '','profile_photo/DEFAULT.jpg', now(), now(), 'member');
 
--- Insérer des données dans la table "user_has_sport"
-INSERT INTO "user_has_sport" ("user_id", "sport_id") VALUES
-    (1, 1), 
-    (1, 3), 
-    (2, 2), 
-    (2, 4), 
-    (3, 5), 
-    (3, 6),
-    (4, 7),
-    (4, 8),
-    (5, 9),
-    (5, 10),
-    (6, 11),
-    (6, 12),
-    (7, 13),
-    (7, 14),
-    (8, 15),
-    (8, 16),
-    (9, 17),
-    (9, 18),
-    (10, 19),
-    (10, 20);
-
 -- Insérer des données dans la table "event"
 INSERT INTO "event" ("title", "date", "organizer", "description", "number_of_participants", "address", "start_time", "end_time", "level_id", "sport_id", "created_at", "updated_at") 
 VALUES
