@@ -197,7 +197,10 @@ export default class EventsDatamapper extends CoreDatamapper {
       );
 
       if (userCheck.rows.length > 0) {
-        return { success: false, error: "L'utilisateur est déjà inscrit à l'événement" };
+        return {
+          success: false,
+          error: "L'utilisateur est déjà inscrit à l'événement",
+        };
       }
 
       // Vérifier si l'événement a atteint sa capacité maximale
@@ -218,7 +221,8 @@ export default class EventsDatamapper extends CoreDatamapper {
       );
 
       // Nombre actuel de participants à l'événement
-      const currentParticipants = capacityCheck.rows[0]?.number_of_participant_current || 1;
+      const currentParticipants =
+        capacityCheck.rows[0]?.number_of_participant_current || 1;
       const maxParticipants = capacityCheck.rows[0]?.initial_participants || 0;
 
       // Si l'événement a atteint sa capacité maximale, renvoyer une erreur
