@@ -10,11 +10,18 @@ interface ConnexionProps {
   setShowConnexionModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+type InscriptionData = {
+  username: string;
+  email: string;
+  password: string;
+  confirmationPassword: string;
+};
+
 function Connexion({ setShowConnexionModal }: ConnexionProps) {
   const [closeModal, setCloseModal] = useState(false);
   const [checked, setChecked] = useState(false);
 
-  const [inscriptionData, setInscriptionData] = useState({
+  const [inscriptionData, setInscriptionData] = useState<InscriptionData>({
     username: '',
     email: '',
     password: '',
@@ -137,9 +144,12 @@ function Connexion({ setShowConnexionModal }: ConnexionProps) {
       return;
     }
 
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    const { confirmationPassword: _, ...inscriptionDataToSend } =
+      inscriptionData;
     // Envoyer les données d'inscription uniquement si le formulaire d'inscription est soumis
     axios
-      .post(`user`, inscriptionData)
+      .post(`user`, inscriptionDataToSend)
       .then((response) => {
         console.log('Utilisateur enregistré:', response.data);
         handleCloseModal();
@@ -187,7 +197,7 @@ function Connexion({ setShowConnexionModal }: ConnexionProps) {
   // Fonction pour modifier l'état des inputs de l'inscription
   const handleInscriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setInscriptionData({ ...inscriptionData, [name]: value });
+    setInscriptionData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   return (
