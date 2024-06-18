@@ -157,6 +157,7 @@ VALUES (
         now()
     );
 -- Insérer des données dans la table "users"
+<<<<<<< HEAD
 INSERT INTO "users" (
         "first_name",
         "last_name",
@@ -430,6 +431,31 @@ VALUES (
         now(),
         'member'
     );
+=======
+INSERT INTO "users" ("first_name", "last_name", "username", "email", "password", "date_of_birth", "description", "photo", "created_at", "updated_at", "role") 
+VALUES
+    ('John', 'Doe', 'john.doe', 'john@example.com', 'mot_de_passe', '1990-01-01', 'Je suis une description très marrante', 'profile_photo/DEFAULT.jpg', now(), now(), 'admin'),
+    ('Alice', 'Smith', 'alice.smith', 'alice@example.com', 'mot_de_passe', '1995-05-15', '', 'profile_photo/DEFAULT.jpg', now(), now(), 'admin'),
+    ('Bob', 'Johnson', 'bob.johnson', 'bob@example.com', 'mot_de_passe', '1988-09-20', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Emma', 'Brown', 'emma.brown', 'emma@example.com', 'mot_de_passe', '1992-03-10', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Chris', 'Evans', 'chris.evans', 'chris@example.com', 'mot_de_passe', '1985-06-13', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Sophia', 'Miller', 'sophia.miller', 'sophia@example.com', 'mot_de_passe', '1998-09-25', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Oliver', 'Taylor', 'oliver.taylor', 'oliver@example.com', 'mot_de_passe', '1987-12-28', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Mia', 'Moore', 'mia.moore', 'mia@example.com', 'mot_de_passe', '1994-02-14', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Ava', 'White', 'ava.white', 'ava@example.com', 'mot_de_passe', '1996-07-17', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Liam', 'Wilson', 'liam.wilson', 'liam@example.com', 'mot_de_passe', '1990-11-21', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Emily', 'Clark', 'emily.clark', 'emily@example.com', 'mot_de_passe', '1993-04-19', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Daniel', 'Thomas', 'daniel.thomas', 'daniel@example.com', 'mot_de_passe', '1991-08-23', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Amelia', 'Anderson', 'amelia.anderson', 'amelia@example.com', 'mot_de_passe', '1997-02-12', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('William', 'Harris', 'william.harris', 'william@example.com', 'mot_de_passe', '1989-10-15', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Sofia', 'Martinez', 'sofia.martinez', 'sofia@example.com', 'mot_de_passe', '1995-03-27', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('James', 'Young', 'james.young', 'james@example.com', 'mot_de_passe', '1986-07-30', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Isabella', 'Lopez', 'isabella.lopez', 'isabella@example.com', 'mot_de_passe', '1998-12-05', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Ethan', 'Gonzalez', 'ethan.gonzalez', 'ethan@example.com', 'mot_de_passe', '1984-11-09', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Charlotte', 'Hernandez', 'charlotte.hernandez', 'charlotte@example.com', 'mot_de_passe', '1992-09-18', '','profile_photo/DEFAULT.jpg', now(), now(), 'member'),
+    ('Alexander', 'King', 'alexander.king', 'alexander@example.com', 'mot_de_passe', '1996-05-22', '','profile_photo/DEFAULT.jpg', now(), now(), 'member');
+
+>>>>>>> e271885944bc960071c4c226d9b5d2bee0ab3bae
 -- Insérer des données dans la table "event"
 INSERT INTO "event" (
         "title",
