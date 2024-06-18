@@ -42,17 +42,19 @@ function CreateEvent({ sports, levels, onChange, onSubmit }: DetailsProps) {
               </div>
 
               <li>Sport</li>
+
               <li>Niveau</li>
+
               <li>Participants maximum</li>
               <li>Date</li>
               <li>Heure de début</li>
               <li>Heure de fin</li>
               <li>Adresse</li>
-              <li>Description</li>
+              <li>Description (facultatif)</li>
             </ul>
           </div>
           <div className="fields">
-            <span className="fieldForResponsive">Titre</span>
+            <p className="fieldForResponsive">Titre</p>
             <input
               className="t1"
               type="text"
@@ -62,7 +64,7 @@ function CreateEvent({ sports, levels, onChange, onSubmit }: DetailsProps) {
               name="title"
             />
 
-            <span className="fieldForResponsive">Sport</span>
+            <p className="fieldForResponsive">Sport</p>
             <select
               className="selectSport"
               defaultValue="Sport"
