@@ -12,6 +12,8 @@ Commande à taper dans le terminal :
 2) npm run db:reset
 
 3) npm run dev
+
+test
  
 
 
