@@ -3,6 +3,7 @@ import eventsRouter from "./api/events.router.js";
 import userRouter from "./api/user.router.js";
 import sportRouter from "./api/sport.router.js";
 import levelRouter from "./api/levels.router.js";
+import contactRouter from "./api/contact.router.js";
 
 const router = express.Router();
 
@@ -63,5 +64,7 @@ router.use("/sport", sportRouter);
  * @property {string} updated_at - La date de mise à jour du niveau au format
  */
 router.use("/level", levelRouter);
+
+router.use("/contact", contactRouter);
 
 export default router;

@@ -146,7 +146,7 @@ router
    */
   .get(verifyToken, wrapper(Controller.getOneUser.bind(Controller)))
 
-  // UPDATE USER (Protected by JTW)
+// UPDATE USER (Protected by JTW)
   /**
    * PATCH /myProfile
    * @summary Met à jour les informations du profil de l'utilisateur connecté.
@@ -207,7 +207,7 @@ router
     wrapper(Controller.updateUser.bind(Controller))
   )
 
-  // ROUTE DELETE USER (Protected by JTW)
+// ROUTE DELETE USER (Protected by JTW)
   /**
    * DELETE /myProfile
    * @summary Supprime le profil de l'utilisateur connecté.
