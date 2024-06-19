@@ -1,20 +1,9 @@
-import nodemailer from 'nodemailer';
+import transporter from "../../configuration/email.config.js";
 import ApiError from "../errors/error.js";
 
 class ContactController {
   static async sendContactEmail(req, res, next) {
     const { email, subject, message } = req.body;
-
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-      }
-    });
 
     const mailOptions = {
       from: email,
