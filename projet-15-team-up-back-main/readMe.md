@@ -13,7 +13,6 @@ Commande à taper dans le terminal :
 
 3) npm run dev
 
-test
  
 
 
