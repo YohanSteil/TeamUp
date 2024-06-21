@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+import axios from 'axios';
 import './Contact.scss';
 import Footer from '../Homepage/Footer/Footer';
 import HeaderBis from '../Homepage/Headers/HeaderBis/HeaderBis';
