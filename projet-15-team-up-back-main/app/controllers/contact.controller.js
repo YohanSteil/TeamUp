@@ -4,7 +4,6 @@ import ApiError from "../errors/error.js";
 class ContactController {
   static async sendContactEmail(req, res, next) {
     const { email, subject, message } = req.body;
-
     const mailOptions = {
       from: email,
       to: process.env.EMAIL_USER,
