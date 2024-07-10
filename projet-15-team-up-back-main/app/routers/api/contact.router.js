@@ -7,7 +7,7 @@ import createSchema from "../../schema/contact/contact.create.schema.js";
 const router = express.Router();
 
 router.route("/").post(
-//   validationMiddleware(createSchema, "body"),
+  validationMiddleware(createSchema, "body"),
   wrapper(Controller.sendContactEmail.bind(Controller))
 );
 
